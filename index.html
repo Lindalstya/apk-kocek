@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id" class="dark">
+  <head>
+    <script>
+      (function() {
+        try {
+          var _origFetch = typeof window !== 'undefined' && window.fetch ? window.fetch.bind(window) : null;
+          var _activeFetch = _origFetch;
+          var fetchDescriptor = {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return _activeFetch;
+            },
+            set: function(val) {
+              _activeFetch = val;
+            }
+          };
+
+          try {
+            Object.defineProperty(window, 'fetch', fetchDescriptor);
+          } catch (e) {}
+
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              Object.defineProperty(Window.prototype, 'fetch', fetchDescriptor);
+            } catch (e) {}
+          }
+
+          if (typeof globalThis !== 'undefined' && globalThis !== window) {
+            try {
+              Object.defineProperty(globalThis, 'fetch', fetchDescriptor);
+            } catch (e) {}
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Kocek - Budget & Saving Habit Companion</title>
+    <meta name="description" content="Aplikasi budgeting dan saving habit dengan emotional feedback Dasai Mochi dan visual modern blue fintech." />
+    <meta property="og:title" content="Kocek - Budget & Saving Habit Companion" />
+    <meta property="og:description" content="Aplikasi budgeting dan saving habit dengan emotional feedback Dasai Mochi dan visual modern blue fintech." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#0E1116] text-[#FFFFFF] antialiased selection:bg-[#00F0D0] selection:text-[#0E1116]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

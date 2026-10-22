@@ -1,0 +1,6 @@
+{
+  "name": "Kocek - Budget & Saving Habit Companion",
+  "description": "Aplikasi budgeting dan saving habit dengan emotional feedback Dasai Mochi dan visual modern blue fintech.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
